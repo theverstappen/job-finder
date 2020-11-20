@@ -5,6 +5,15 @@ import VueRouter from 'vue-router';
 // Import Vue App, routes, store
 import App from './App';
 import routes from './routes';
+import store from './store/store';
+
+//Import bootstrap
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+
+// Install BootstrapVue
+Vue.use(BootstrapVue);
 
 Vue.use(VueRouter);
 
@@ -16,7 +25,7 @@ const router = new VueRouter({
 });
 
 new Vue({
-    el: '#app',
+    store,
+    router,
     render: h => h(App),
-    router
-});
+}).$mount('#app');

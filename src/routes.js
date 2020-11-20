@@ -1,18 +1,25 @@
 import AppHome from '@/components/AppHome';
-const AppMedium = () => import('@/components/AppMedium');
+const JobDetail = () => import('@/components/JobDetail');
 
 
 const routes = [
     {
-        path: '/',
+        path: '/joblist',
         name: 'Home',
         component: AppHome
     },
     {
-        path: '/medium',
-        name: 'Medium',
-        component: AppMedium
-    }
+        path: '/jobdetail/:jobId/',
+        name: 'jobDetail',
+        component: JobDetail,
+        props: true,
+    },
+    {
+        path: '*',
+        redirect: '/joblist',
+        component: AppHome
+    },
+
 ];
 
 export default routes;
