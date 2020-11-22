@@ -28,7 +28,7 @@ export default new Vuex.Store({
     actions: {
           loadJobs ( { commit }, { search, city } ) {
               axios
-                .get('http://my-json-server.typicode.com/theverstappen/job-list/jobs', {
+                .get('https://my-json-server.typicode.com/theverstappen/job-list/jobs', {
                     params:{
                         q: search,
                         cityName: city
@@ -53,7 +53,7 @@ export default new Vuex.Store({
                   if(this.state.job) {
                       commit('SET_JOB_DETAIL', null);
                   }
-                let res = await axios.get(`http://my-json-server.typicode.com/theverstappen/job-list/jobs/${id}`);
+                let res = await axios.get(`https://my-json-server.typicode.com/theverstappen/job-list/jobs/${id}`);
 
                 commit('SET_JOB_DETAIL', res.data);
 
