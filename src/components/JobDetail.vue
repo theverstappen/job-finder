@@ -1,5 +1,5 @@
 <template>
-    <div class="container" v-if="job.title">
+    <div class="container" v-if="job">
         <h1 class="mt-5 mb-3">{{job.title}} - {{job.cityName}}</h1>
         <h2 class="mb-3">{{job.companyName}}</h2>
         <p>{{job.description}}</p>
@@ -11,7 +11,8 @@ import { mapState } from 'vuex';
 export default {
     name: 'JobDetail',
     props: ["jobId"],
-    created () {
+    computed: mapState(['job']),
+    mounted () {
         this.getJobDetail();
     },
     methods: {
@@ -22,7 +23,6 @@ export default {
             await this.$store.dispatch('loadJobDetail',payload);
         }
     },
-    computed: mapState(['job']),
 };
 </script>
 
